@@ -31,11 +31,11 @@ export function ArtistDetails({ artist, albums }) {
   );
 }
 
-function Cover({ artist, name }) {
+export function Cover({ artist, name , size} ) {
   const [loadStatus, setLoadStatus] = useState({ status: "loading" });
 
   useEffect(() => {
-    fetchCoverImage(artist, name, "medium")
+    fetchCoverImage(artist, name, size??"medium")
       .then((url) => {
         setLoadStatus({ status: "loaded", url: url });
       })
