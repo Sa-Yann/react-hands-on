@@ -7,7 +7,7 @@ const rootDiv = document.getElementById("root");
 const main = document.createElement("main");
 
 const artists = artistsWithAlbums(artist);
-
+console.log(artists);
 const table = document.createElement("table");
 
 // Table header
@@ -27,6 +27,22 @@ table.appendChild(header);
 
 // Table body
 
+const tbody = document.createElement("tbody")
+artists.forEach((artist) => {
+    const name= artist.name;
+    const albums = artist.albums;
+
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.textContent = name;
+    const albumCountTd = document.createElement('td');
+    albumCountTd.textContent = albums.length === 0 ? "No Album" : albums.length;
+    tr.appendChild(td);
+    tr.appendChild(albumCountTd);
+    tbody.appendChild(tr);
+})
+
+table.appendChild(tbody)
 // À VOUS DE JOUER :)
 
 main.appendChild(table);
