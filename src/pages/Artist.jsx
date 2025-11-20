@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { AlbumDisplay } from "../components/AlbumDisplay";
-import { artistsWithAlbums } from "../utils/utils";
+import { artistsWithAlbums, fetchCoverImage } from "../utils/utils";
+
 
 const artists = artistsWithAlbums();
 export function Artist() {

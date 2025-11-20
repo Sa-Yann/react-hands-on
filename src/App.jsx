@@ -1,9 +1,8 @@
 import logo from "./assets/logo.jpg";
 import "./App.css";
 import { Artist } from "./pages/Artist";
-import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet, Link } from "react-router-dom";
 import { Artists } from "./pages/Artists";
-import { Link } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
