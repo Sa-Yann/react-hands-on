@@ -2,9 +2,12 @@ import logo from "./assets/logo.jpg";
 import { ArtistTable } from "./components/ArtistTable";
 import "./App.css";
 import { artistsWithAlbums } from "./utils/utils";
-
+import { useState } from "react";
 const artists = artistsWithAlbums();
 export const App = () => {
+  const [selectedArtist, setSelectedArtist] = useState(undefined);
+  const [selectedAlbums, setSelectedAlbums] = useState(undefined);
+  console.log(selectedAlbums)
   return (
     <>
       <header>
@@ -28,7 +31,20 @@ export const App = () => {
         </nav>
       </header>
       <main>
-        <ArtistTable artists={artists} />
+        <input type="text" />
+          <p>{selectedArtist?.name}</p>
+        <ul>
+          {selectedArtist?.albums.map((album) => {
+            return < li key={album}>{album}  </li> 
+          })}
+        </ul>
+                  
+        <ArtistTable 
+          artists={artists} 
+          onSelectedArtist={(artist) => setSelectedArtist(artist)}
+      
+          
+        />
       </main>
     </>
   );
