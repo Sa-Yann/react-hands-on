@@ -7,5 +7,9 @@ export function Artist() {
   const { name } = useParams();
   const { name: artistName, albums } = artists.find((a) => a.name === name);
 
-  return <ArtistDetails artist={artistName} albums={albums} />;
+  return (
+    <>
+      <ArtistDetails artist={artistName} albums={albums} />;
+    </>
+  );
 }
