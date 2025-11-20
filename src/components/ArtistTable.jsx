@@ -13,7 +13,10 @@ export function ArtistTable({ artists, onDisplay }) {
         {artists.map(({ name, albums }) => {
           return (
             <tr key={name}>
-              <td>{name}</td>
+              <td>
+                <a href="">{name}</a>
+                
+              </td>
               <td>{albums.length === 0 ? "No albums" : albums.length}</td>
               <td>
                 <button onClick={() => onDisplay(name)}>Display</button>
