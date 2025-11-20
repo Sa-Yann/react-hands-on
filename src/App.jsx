@@ -1,8 +1,10 @@
 import logo from "./assets/logo.jpg";
 import "./App.css";
 import { artistsWithAlbums } from "./utils/utils";
-
+const artists = artistsWithAlbums()
 export const App = () => {
+
+
   return (
     <>
       <header>
@@ -25,7 +27,41 @@ export const App = () => {
           </ul>
         </nav>
       </header>
-      <main>{/* TODO */}</main>
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th>artist</th>
+              <th>Album</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            {artists.map(({name, albums}) => {
+              const albumLenggth= albums.length === 0 ? "No Album" : albums.length
+              console.log(albums)
+              return (
+                <tr key={name}>   
+                  <td>{name}</td>
+                  <td>{albumLenggth}</td>
+               
+                </tr>
+              )
+            } 
+            )}
+            {/* {artists.map((artist) => {
+              return (
+                <tr key={artist.id}>  
+                  <td>{artist.name}</td>
+                  <td>{artist.albums.length === 0 ? "No Album" : artist.albums.length}</td>
+                  {console.log(artist.albums)}
+                </tr>
+              )
+            } 
+            )} */}
+          </tbody>
+        </table>      
+      </main>
     </>
   );
 };
